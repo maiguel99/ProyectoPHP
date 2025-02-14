@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Informativa</title>
+    <link rel="stylesheet" href="sql.css">
+</head>
+<body>
+    <header>
+        <h1>Documentacion de la creacion de la BDD con SQL</h1>
+    </header>
+
+    <section class="introduccion">
+        <h2>INTRODUCCIÓN</h2>
+        <p>
+            En esta pagina documentaré toda la creacion de la base de datos, ya que no
+            puedo subir la base de datos como tal, asi que voy a adjuntar los codigos y las capturas.
+            <br>
+            La base de datos está creada con MySQL Workbench.
+            <br>
+            He creado un total de 7 tablas.
+            <br>
+            - Usuarios
+            <br>
+            - Cursos
+            <br>
+            - Profesores
+            <br>
+            - Asignaturas
+            <br>
+            - Alumnos
+            <br>
+            - Profesores + Asignaturas + Cursos
+            <br>
+            - Matricula
+        </p>
+    </section>
+    <section class="introduccion">
+        <h2>Diagrama / Preparacion de BDD</h2>
+        <p>
+           He utilizado la web Draw.io para hacer mi esquema y como organizaría mi BDD
+           para gestionar la web, tanto los cursos como los usuarios.
+           <br>
+           Imagen PNG del diagrama:
+           <br>
+           <br>
+           <img class="img" src="diagramaGeneral.png" alt="">
+        </p>
+    </section>
+
+    <section class="seccion">
+        <h2>Tabla Usuario</h2>
+        <img src="usuarios.png" alt="" class="imagen-derecha">
+        <p>
+            En la tabla usuarios, almacenare la informacion de la gente que se registre
+            en mi web, desde la pagina de LogIn.
+            <br>
+            Codigo:
+            <br>
+            <br>
+            <b>create table usuario(<br>
+                id int auto_increment primary key,<br>
+                nombre varchar(20) not null,<br>
+                apellido varchar(30) not null,<br>
+                email varchar(100) not null,<br>
+                contraseña varchar(10) not null<br>
+                );
+            </b>
+        </p>
+    </section>
+    <section class="seccion">
+        <h2>Tabla CURSO</h2>
+        <img src="curso.png" alt="" class="imagen-derecha">
+        <p>
+            En la tabla curso, almacenare los 3 cursos que ofrecerá la web.
+            <br>
+            Codigo:
+            <br>
+            <br>
+            <b>create table curso(<br>
+                id int auto_increment primary key,<br>
+                nombre varchar(10) not null<br>
+                );
+            </b>
+        </p>
+    </section>
+    <section class="seccion">
+        <h2>Tabla PROFESOR</h2>
+        <img src="profesor.png" alt="" class="imagen-derecha">
+        <p>
+            En la tabla profesor, almacenare los datos identificativos de los profesores.
+            <br>
+            Codigo:
+            <br>
+            <br>
+            <b>create table profesor(<br>
+                id int auto_increment primary key,<br>
+                nombre varchar(20) not null,<br>
+                apellido varchar(30) not null,<br>
+                email varchar(100) not null,<br>
+                );
+                
+            </b>
+        </p>
+    </section>
+    <section class="seccion">
+        <h2>Tabla ASIGNATURA</h2>
+        <img src="asignatura.png" alt="" class="imagen-derecha">
+        <p>
+            En la tabla asignatura, almacenare los nombres de todas las asignaturas de los grados.
+            <br>
+            Codigo:
+            <br>
+            <br>
+            <b>create table asignatura(<br>
+                id int auto_increment primary key,<br>
+                nombre varchar(50) not null<br>
+                );                
+                
+            </b>
+        </p>
+    </section>
+    <section class="seccion">
+        <h2>Tabla ALUMNO</h2>
+        <img src="alumno.png" alt="" class="imagen-derecha">
+        <p>
+            En la tabla alumno, almacenare los nombres de los usuarios anteriormente 
+            registrados en la tabla usuarios.
+            <br>
+            Codigo:
+            <br>
+            <br>
+            <b>create table alumno(<br>
+                id int auto_increment primary key,<br>
+                nombre varchar(20) not null,<br>
+                apellido varchar(30) not null,<br>
+                email varchar(100) not null,<br>
+                contraseña varchar(10) not null,<br>
+                sexo varchar(2) check(sexo in('F', 'M'))<br>
+                );               
+                
+            </b>
+        </p>
+    </section>
+    <section class="seccion">
+        <h2>Tabla PROFESOR + ASIGNATURA + CURSO</h2>
+        <img src="profasigcurso.png" alt="" class="imagen-derecha">
+        <p>
+            En la tabla de "mezcla", será la tabla que juntará las tres tablas con las 
+            PK de cada tabla.
+            <br>
+            Codigo:
+            <br>
+            <br>
+            <b>create table profAsigCurso(<br>
+                id int auto_increment primary key,<br>
+                idCurso int,<br>
+                idProfesor int,<br>
+                idAsignatura int,<br>
+                constraint fkCurso foreign key(idCurso) references curso(id),<br>
+                constraint fkProfesor foreign key(idProfesor) references profesor(id),<br>
+                constraint fkAsignatura foreign key(idAsignatura) references asignatura(id)<br>
+                );            
+                
+            </b>
+        </p>
+    </section>
+    <section class="seccion">
+        <h2>Tabla MATRICULA</h2>
+        <img src="matricula.png" alt="" class="imagen-derecha">
+        <p>
+            En la tabla de "mezcla", será la tabla que juntará las tres tablas con las 
+            PK de cada tabla.
+            <br>
+            Codigo:
+            <br>
+            <br>
+            <b>create table matricula(<br>
+                id int auto_increment primary key,<br>
+                idAlumno int,<br>
+                idProfAsigCurso int,<br>
+                año date not null,<br>
+                constraint fkAlumno foreign key(idAlumno) references alumno(id),<br>
+                constraint fkProfAsigCurso foreign key(idProfAsigCurso) references profAsigCurso(id)<br>
+                );                       
+                
+            </b>
+        </p>
+    </section>
+    <section class="seccion">
+        <h2>Resultado final de la creacion de las tablas</h2>
+        <img class="final" src="diagrama_proyecto_sql.png" alt="" class="imagen-derecha">
+    </section>
+
+    <footer>
+        <p>Miguel Ramirez Sanchez ASIR 1r</p>
+    </footer>
+</body>
+</html>
