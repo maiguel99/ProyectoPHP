@@ -45,7 +45,7 @@
            Imagen PNG del diagrama:
            <br>
            <br>
-           <img class="img" src="diagramaGeneral.png" alt="">
+           <img class="img" src="diagramaBDD.png" alt="">
         </p>
     </section>
 
@@ -189,8 +189,27 @@
         </p>
     </section>
     <section class="seccion">
+        <h2>Tabla FORMULARIO</h2>
+        <img src="formulario.png" alt="" class="imagen-derecha">
+        <p>
+            En la tabla de formulario, será la tabla donde almacenará la informacion que rellene el usuario de la web.
+            <br>
+            Codigo:
+            <br>
+            <br>
+            <b>create table formulario(<br>
+                id int auto_increment primary key,<br>
+                nombre varchar(20) not null,<br>
+                email varchar(100) not null,<br>
+                numeroTelefono char(9) null,<br>
+                texto text not null<br>
+                );
+            </b>
+        </p>
+    </section>
+    <section class="seccion">
         <h2>Resultado final de la creacion de las tablas</h2>
-        <img class="final" src="diagrama_proyecto_sql.png" alt="" class="imagen-derecha">
+        <img class="final" src="diagramaIngenieriaSGBD.png" alt="" class="imagen-derecha">
     </section>
 
     <footer>
