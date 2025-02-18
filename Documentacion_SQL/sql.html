@@ -45,13 +45,13 @@
            Imagen PNG del diagrama:
            <br>
            <br>
-           <img class="img" src="diagramaBDD.png" alt="">
+           <img class="img" src="documentacionBDD.png" alt="">
         </p>
     </section>
 
     <section class="seccion">
         <h2>Tabla Usuario</h2>
-        <img src="usuarios.png" alt="" class="imagen-derecha">
+        <img src="usuario.png" alt="" class="imagen-derecha">
         <p>
             En la tabla usuarios, almacenare la informacion de la gente que se registre
             en mi web, desde la pagina de LogIn.
@@ -61,11 +61,12 @@
             <br>
             <b>create table usuario(<br>
                 id int auto_increment primary key,<br>
-                nombre varchar(20) not null,<br>
-                apellido varchar(30) not null,<br>
-                email varchar(100) not null,<br>
+                nombre varchar(50) not null,<br>
+                apellido varchar(50) not null,<br>
+                email varchar(200) not null,<br>
+                direccion varchar(100),<br>
                 contraseña varchar(10) not null<br>
-                );
+                );                
             </b>
         </p>
     </section>
@@ -80,7 +81,26 @@
             <br>
             <b>create table curso(<br>
                 id int auto_increment primary key,<br>
-                nombre varchar(10) not null<br>
+                nombre varchar(50) not null,<br>
+                año year<br>
+                );                
+            </b>
+        </p>
+    </section>
+    <section class="seccion">
+        <h2>Tabla MATRICULA</h2>
+        <img src="matricula.png" alt="" class="imagen-derecha">
+        <p>
+            En la tabla matricula, almacenaré los datos del alumno matriculado en el curso, con X asignaturas y X profesores.
+            <br>
+            Codigo:
+            <br>
+            <br>
+            <b>create table matricula(<br>
+                idCurso int,<br>
+                idUsuario int,<br>
+                constraint fkCursoMatri foreign key(idCurso) references curso(id) on delete cascade,<br>
+                constraint fkUsuarioMatri foreign key(idUsuario) references usuario(id) on delete cascade<br>
                 );
             </b>
         </p>
@@ -89,18 +109,18 @@
         <h2>Tabla PROFESOR</h2>
         <img src="profesor.png" alt="" class="imagen-derecha">
         <p>
-            En la tabla profesor, almacenare los datos identificativos de los profesores.
+            En la tabla profesor, almacenare los datos de los profesores.
             <br>
             Codigo:
             <br>
             <br>
             <b>create table profesor(<br>
                 id int auto_increment primary key,<br>
-                nombre varchar(20) not null,<br>
-                apellido varchar(30) not null,<br>
-                email varchar(100) not null,<br>
-                );
-                
+                nombre varchar(50) not null,<br>
+                apellido varchar(50) not null,<br>
+                email varchar(200) not null,<br>
+                direccion varchar(100)<br>
+                );                
             </b>
         </p>
     </section>
@@ -108,7 +128,7 @@
         <h2>Tabla ASIGNATURA</h2>
         <img src="asignatura.png" alt="" class="imagen-derecha">
         <p>
-            En la tabla asignatura, almacenare los nombres de todas las asignaturas de los grados.
+            En la tabla asignatura, almacenaré todas las asignaturas que ofrece cada grado.
             <br>
             Codigo:
             <br>
@@ -116,75 +136,47 @@
             <b>create table asignatura(<br>
                 id int auto_increment primary key,<br>
                 nombre varchar(50) not null<br>
-                );                
-                
+                );                             
             </b>
         </p>
     </section>
     <section class="seccion">
-        <h2>Tabla ALUMNO</h2>
-        <img src="alumno.png" alt="" class="imagen-derecha">
+        <h2>Tabla PROFESOR + ASIGNATURA</h2>
+        <img src="profasig.png" alt="" class="imagen-derecha">
         <p>
-            En la tabla alumno, almacenare los nombres de los usuarios anteriormente 
-            registrados en la tabla usuarios.
-            <br>
-            Codigo:
-            <br>
-            <br>
-            <b>create table alumno(<br>
-                id int auto_increment primary key,<br>
-                nombre varchar(20) not null,<br>
-                apellido varchar(30) not null,<br>
-                email varchar(100) not null,<br>
-                contraseña varchar(10) not null,<br>
-                sexo varchar(2) check(sexo in('F', 'M'))<br>
-                );               
-                
-            </b>
-        </p>
-    </section>
-    <section class="seccion">
-        <h2>Tabla PROFESOR + ASIGNATURA + CURSO</h2>
-        <img src="profasigcurso.png" alt="" class="imagen-derecha">
-        <p>
-            En la tabla de "mezcla", será la tabla que juntará las tres tablas con las 
+            En la tabla de "mezcla", será la tabla que juntará las dos tablas con las 
             PK de cada tabla.
             <br>
             Codigo:
             <br>
             <br>
-            <b>create table profAsigCurso(<br>
+            <b>create table profasig(<br>
+                id int auto_increment primary key,<br>
+                idProfesor int,<br>
+                idAsignatura int,<br>
+                constraint fkProfe foreign key(idProfesor) references profesor(id) on delete cascade,<br>
+                constraint fkAsig foreign key(idAsignatura) references asignatura(id) on delete cascade<br>
+                );                
+            </b>
+        </p>
+    </section>
+    <section class="seccion">
+        <h2>Tabla ASIGNATURA + CURSO</h2>
+        <img src="asigcurso.png" alt="" class="imagen-derecha">
+        <p>
+            En la tabla de "mezcla", será la tabla que juntará las dos tablas con las 
+            PK de cada tabla.
+            <br>
+            Codigo:
+            <br>
+            <br>
+            <b>create table asigcurso(<br>
                 id int auto_increment primary key,<br>
                 idCurso int,<br>
                 idProfesor int,<br>
-                idAsignatura int,<br>
-                constraint fkCurso foreign key(idCurso) references curso(id),<br>
-                constraint fkProfesor foreign key(idProfesor) references profesor(id),<br>
-                constraint fkAsignatura foreign key(idAsignatura) references asignatura(id)<br>
-                );            
-                
-            </b>
-        </p>
-    </section>
-    <section class="seccion">
-        <h2>Tabla MATRICULA</h2>
-        <img src="matricula.png" alt="" class="imagen-derecha">
-        <p>
-            En la tabla de "mezcla", será la tabla que juntará las tres tablas con las 
-            PK de cada tabla.
-            <br>
-            Codigo:
-            <br>
-            <br>
-            <b>create table matricula(<br>
-                id int auto_increment primary key,<br>
-                idAlumno int,<br>
-                idProfAsigCurso int,<br>
-                año date not null,<br>
-                constraint fkAlumno foreign key(idAlumno) references alumno(id),<br>
-                constraint fkProfAsigCurso foreign key(idProfAsigCurso) references profAsigCurso(id)<br>
-                );                       
-                
+                constraint fkCurso foreign key(idCurso) references curso(id) on delete cascade,<br>
+                constraint fkProfesor foreign key(idProfesor) references profesor(id) on delete cascade<br>
+                );                                     
             </b>
         </p>
     </section>
@@ -209,7 +201,7 @@
     </section>
     <section class="seccion">
         <h2>Resultado final de la creacion de las tablas</h2>
-        <img class="final" src="diagramaIngenieriaSGBD.png" alt="" class="imagen-derecha">
+        <img class="final" src="documentacionIngenieria.png" alt="" class="imagen-derecha">
     </section>
 
     <footer>
