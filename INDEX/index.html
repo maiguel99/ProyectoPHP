@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title> Online MikiCursos</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+    <link rel="icon" href="logoMR.png">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="navegador">
+          <a href="#">
+            <img src="logoMR.png" alt="" />
+            <h2 class="titulo"> MR Online Courses</h2>
+          </a>
+        </div>
+
+        <ul>
+          <li><a href="#sobrenosotros">Sobre nosotros</a></li>
+          <li><a href="#cursos">Cursos</a></li>
+          <li><a href="#asignaturas">Asignaturas</a></li>
+          <li><a href="#contactanos">Contáctanos</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="seccion1">
+      <div class="seccion_contenedor">
+        <div class="seccion_contenedor2">
+          <div class="texto_seleccion">
+            <h2>Aprende Con Nosotros</h2>
+            <h3>Descubre la magia de aprender informatica</h3>
+            <p>
+              Bienvenido a nuestros cursos online, donde adquirirás conocimientos de ASIR, DAW o DAM.
+            </p>
+
+            <div class="seccion1_boton">
+              <boton class="boton"><a href="login.html"> Iniciar Sesion </a></boton>
+              <boton class="boton"><a href="registrate.html"> Registrate </a></boton>
+            </div>
+          </div>
+
+          <div class="imagen_seccion">
+            <img src="logoMR.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sobre_nosotros" id="sobrenosotros">
+      <div class="seccion_contenedor">
+        <div class="sobrenosotros_contenedor">
+          <div class="texto_seleccion">
+            <h2 class="seccion_texto">Sobre nosotros</h2>
+            <p>
+              En MR Online Courses, nos apasiona la tecnología y creemos en el poder de la educación para transformar vidas.
+              Somos una empresa especializada en ofrecer cursos online de alta calidad en el ámbito de la informática,
+              diseñados para adaptarse a las necesidades de estudiantes y profesionales que buscan potenciar sus habilidades y
+              avanzar en sus carreras.
+              <br>
+              <br>
+              Ofrecemos tres programas principales: ASIR (Administración de Sistemas Informáticos en Red),
+              DAW (Desarrollo de Aplicaciones Web) y DAM (Desarrollo de Aplicaciones Multiplataforma).
+              <br>
+              <br>
+              Cada curso está cuidadosamente estructurado por expertos en la industria, combinando teoría y
+              práctica para garantizar que nuestros alumnos estén preparados para los desafíos del mundo laboral actual.
+              En MR Online Courses, nos enorgullece brindar una experiencia de aprendizaje flexible, interactiva y accesible,
+              respaldada por un equipo comprometido con tu éxito. Únete a nuestra comunidad y descubre cómo podemos ayudarte a
+              alcanzar tus metas en el mundo de la informática.
+            </p>
+          </div>
+
+          <div class="imagen_seccion">
+            <img src="code.png" alt="code" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cursos" id="cursos">
+      <h2 class="seccion_texto">Cursos</h2>
+      <div class="seccion_contenedor">
+        <div class="curso_contenedor">
+          <div class="cursos_items">
+            <a href=""><img src="asir.png" alt="" /></a>
+          </div>
+          <div class="cursos_items">
+            <a href=""><img src="daw.png" alt="" /></a>
+          </div>
+          <div class="cursos_items">
+            <a href=""><img src="dam.png" alt="" /></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="asignaturas" id="asignaturas">
+      <h2 class="seccion_texto">Asignaturas</h2>
+      <div class="seccion_contenedor">
+        <div class="asignaturas_contenedor">
+          <div class="asignaturas_items">
+            <img class="asigimg1" src="bdd.png" alt="" />
+            <div class="asignaturas_text">
+              <h3>Bases de datos</h3>
+            </div>
+          </div>
+          <div class="asignaturas_items">
+            <img class="asigimg2" src="lenguaje.png" alt="" />
+            <div class="asignaturas_text">
+              <h3>Lenguajes de marcas</h3>
+            </div>
+          </div>
+          <div class="asignaturas_items">
+            <img class="asigimg3" src="ciber.png" alt="" />
+            <div class="asignaturas_text">
+              <h3>Ciberseguridad y hacking ético</h3>
+            </div>
+          </div>
+          <div class="asignaturas_items">
+            <img class="asigimg1" src="sistemasoperaticos.png" alt="" />
+            <div class="asignaturas_text">
+              <h3>Administración de sistemas operativos</h3>
+            </div>
+          </div>
+          <div class="asignaturas_items">
+            <img class="asigimg1" src="hardware.png" alt="" />
+            <div class="asignaturas_text">
+              <h3>Fundamentos de hardware</h3>
+            </div>
+          </div>
+          <div class="asignaturas_items">
+            <img class="asigimg1" src="administracionbdd.png" alt="" />
+            <div class="asignaturas_text">
+              <h3>Administración de bases de datos</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="contactanos" id="contactanos">
+      <h2 class="seccion_texto">contactanos</h2>
+      <div class="seccion_contenedor">
+        <div class="contactanos_container">
+          <div class="contactanos_form">
+            <form action="formulario.php" method="post">
+              <div class="field">
+                <label for="Name">Nombre completo</label>
+                <input type="text" id="name" name="nombre" placeholder="Su nombre" required />
+              </div>
+              <div class="field">
+                <label for="email">Correo electrónico</label>
+                <input
+                  type="text"
+                  id="email"
+                  name="gmail"
+                  placeholder="Su Email"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="number">Número de Telefono</label>
+                <input
+                  type="number"
+                  id="numero"
+                  name="numeroTelefono"
+                  placeholder="Su numero de contacto"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="textarea">Escribe el texto</label>
+                <textarea
+                  name="textarea"
+                  id="texto"
+                  name="texto"
+                  placeholder="Su mensaje"
+                ></textarea>
+              </div>
+
+              <input class="boton" type="submit" id="enviar" name="enviar" ></input>
+            </form>
+          </div>
+
+          <div class="contactanos_text">
+            <div class="contactanos_items">
+              <i class="bx bx-current-location"></i>
+              <div class="contactanos_details">
+                <h3>Localización</h3>
+                <p>Barcelona, Cataluña, España</p>
+              </div>
+            </div>
+            <div class="contactanos_items">
+              <i class="bx bxs-envelope"></i>
+              <div class="contactanos_details">
+                <h3>Consultas Generales</h3>
+                <p>mronlinecourses@gmail.com</p>
+              </div>
+            </div>
+            <div class="contactanos_items">
+              <i class="bx bxs-phone-call"></i>
+              <div class="contactanos_details">
+                <h3>Numero de contacto</h3>
+                <p>+34 654 84 09 46</p>
+              </div>
+            </div>
+            <div class="contactanos_items">
+              <i class="bx bxs-time-five"></i>
+              <div class="contactanos_details">
+                <h3>Horario</h3>
+                <p>Lun-Sab : 10:00 AM - 7:00 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="seccion_contenedor">
+        <div class="piedepag_seccion">
+          <div class="piedepag_logo">
+            <a href="index.html">
+              <img src="logoMR.png" alt="" />
+              <h2>MR Online Courses</h2>
+            </a>
+          </div>
+
+          <div class="piedepag_links">
+            <h3>Links</h3>
+            <ul>
+              <li><a href="#sobrenosotros">Sobre Nosotros</a></li>
+              <li><a href="#cursos">Cursos</a></li>
+              <li><a href="#asignaturas">Asignaturas</a></li>
+              <li><a href="#contactanos">Contactanos</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Contacto</h3>
+            <ul>
+              <li>
+                <i class="bx bx-current-location"></i>
+                <span>Barcelona, Cataluña, España</span>
+              </li>
+              <li>
+                <i class="bx bxs-phone-call"></i> <span>+34 654 84 09 46</span>
+              </li>
+              <li>
+                <i class="bx bxs-time-five"></i>
+                <span>Lun-Sab : 10:00 AM - 7:00 PM</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
