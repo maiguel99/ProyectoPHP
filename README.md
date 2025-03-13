@@ -1,6 +1,8 @@
 # ProyectoPHP
 En esta pagina subiré los pasos de la creacion del proyecto.
 
+----------------------------------------------------------------
+**Creacion Base de Datos**
 1. He creado un esquema con Draw.io para la Base de Datos. He comentado mi proyecto y mi BDD a Javier Esteban, Rafael y Ricard,
 y me ha ayudado a saber identificar las redundancias y la flexibilidad del esquema.
 2. He introducido el codigo en MySQL Workbench con alguna restriccion y con las relaciones necesarias.
