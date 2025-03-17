@@ -23,12 +23,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $consulta->execute();
     $rs = $consulta->fetch(PDO::FETCH_ASSOC);
     $_SESSION['admin'] = $nomusuario;
-
     if ($rs) {
         header("Location: index.html");
     } else {
         header("Location: error.html");
-    }
+    } 
 }
 
 

@@ -24,32 +24,24 @@ body {
     margin: 0;
 }
 
-form {
+div {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
 }
 
-form div {
-    margin-bottom: 15px;
+div {
+    margin-bottom: 10px;
 }
 
 .texto {
-    font-size: 14px;
+    font-size: 25px;
     color: #333;
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .boton {
@@ -64,41 +56,25 @@ input[type="password"] {
 }
 
 .boton:hover {
-    background-color: #0056b3;
+    background-color: #004792;
 }
 
-.olvido {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.olvido a {
-    color: #007bff;
+.iniciosesion a{
     text-decoration: none;
-    font-size: 14px;
-}
-
-.olvido a:hover {
-    text-decoration: underline;
+    color: white;
 }
 
 </style>
 <body>
-    <form action="login.php" method="post">
-        <div>
-            <b><p class="texto">Usuario</p><input type="text" name="nomusuario" placeholder="Nombre de Usuario"></b>
-        </div>
-        <div>
-            <b><p class="texto">Contraseña</p><input type="password" name="contrausuario" placeholder="Contraseña"></b>
-        </div>
-        <br>
+    <div>
+        <b><p class="texto">PANEL ADMIN</p></b>
         <div class="iniciosesion">
-            <button class="boton">Iniciar Sesion</button>
+            <button class="boton"><a href="panelAdmin.html">PAGINA ADMIN</a></button>
         </div>
-        <div class="olvido">
-            <p>¿No tienes cuenta?<a class="link" href="registrate.html"> Registrate</a></p>
+        <div class="iniciosesion">
+            <button class="boton"><a href="index.html">PAGINA PRINCIPAL</a></button>
         </div>
-    </form>
+    </div>
 
 </body>
 </html>
