@@ -14,7 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nomusuario = $_POST['nomusuario'];
     $contrausuario = $_POST['contrausuario'];
     // die(var_dump($nomusuario));
-    $contraseñacifrada = password_hash($contrausuario, PASSWORD_DEFAULT);
+    // $contraseñacifrada = password_hash($contrausuario, PASSWORD_DEFAULT);
+    $contraseña_cifrada = password_hash("admin", PASSWORD_DEFAULT);
     // Condulta SQL
     $sql = "SELECT nombre, contraseña FROM usuario WHERE nombre = :usuario and contraseña = :contra";
     $consulta = $conn->prepare($sql);
@@ -22,12 +23,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $consulta->bindParam(':contra', $contrausuario);
     $consulta->execute();
     $rs = $consulta->fetch(PDO::FETCH_ASSOC);
-    $_SESSION['admin'] = $nomusuario;
+    // $_SESSION['admin'] = $nomusuario;
+
     if ($rs) {
         header("Location: index.html");
     } else {
         header("Location: error.html");
-    } 
+    }
+
 }
 
 

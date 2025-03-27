@@ -69,27 +69,33 @@ input[type="password"] {
 
 </style>
 <body>
-    <form action="login.php" method="post">
-        <div>
-            <p class="texto">Usuario</p><input type="text" name="nomusuario" placeholder="Nombre de Usuario">
-        </div>
-        <div>
-            <p class="texto">Apellido</p><input type="text" name="nomusuario" placeholder="Apellido de Usuario">
-        </div>
-        <div>
-            <p class="texto">Email</p><input type="text" name="nomusuario" placeholder="Correo Electronico">
-        </div>
-        <div>
-            <p class="texto">Direccion</p><input type="text" name="nomusuario" placeholder="Direccion">
-        </div>
-        <div>
-            <p class="texto">Contraseña</p><input type="password" name="contrausuario" placeholder="Contraseña">
-        </div>
-        <br>
-        <div class="iniciosesion">
-            <button class="boton">Registrate</button>
-        </div>
-    </form>
-
+    
+        <form action="registrate.php" method="post">
+            <div>
+                <p class="texto">Nombre</p>
+                <input type="text" name="nombre" placeholder="Nombre de Usuario" required>
+            </div>
+            <div>
+                <p class="texto">Apellido</p>
+                <input type="text" name="apellido" placeholder="Apellido de Usuario" required>
+            </div>
+            <div>
+                <p class="texto">Email</p>
+                <input type="text" name="email" placeholder="Correo Electrónico" required>
+            </div>
+            <div>
+                <p class="texto">Dirección</p>
+                <input type="text" name="direccion" placeholder="Dirección" required>
+            </div>
+            <div>
+                <p class="texto">Contraseña</p>
+                <input type="password" name="contraseña" placeholder="Contraseña" required>
+            </div>
+            <br>
+            <div class="iniciosesion">
+                <button class="boton" type="submit">Registrarse</button>
+            </div>
+        </form>
+    
 </body>
 </html>
