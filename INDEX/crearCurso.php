@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Guardar los cambios
             file_put_contents($indexPath, $newContent);
             
-            header("Location: panelAdmin.html");
+            header("Location: panelAdmin.php");
             exit();
         } else {
             echo "Error al crear el curso";

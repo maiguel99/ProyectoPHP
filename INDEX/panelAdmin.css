@@ -22,6 +22,9 @@ html {
 
 body {
     background-color: var(--white-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -100,4 +103,65 @@ label .close_btn {
 
 #click {
     display: none;
+}
+
+.admin-container {
+    max-width: 800px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.admin-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.admin-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #333f61;
+    color: var(--white-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    min-width: 200px;
+}
+
+.admin-button:hover {
+    background-color: var(--secondary-color);
+}
+
+.admin-button.delete {
+    background-color: #dc3545;
+}
+
+.admin-button.delete:hover {
+    background-color: #c82333;
+}
+
+.delete-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.delete-form select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px;
 }

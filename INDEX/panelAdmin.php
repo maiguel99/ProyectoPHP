@@ -1,4 +1,17 @@
 
+<?php
+$localhost = "localhost";
+$root = "root";
+$pass = "miguell";
+$proyectomiguelphp = "proyectomiguelphp";
+
+try {
+    $conn = new PDO("mysql:host=$localhost;dbname=$proyectomiguelphp;charset=utf8", $root, $pass);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,9 +41,12 @@
         <form action="eliminarCurso.php" method="post" class="delete-form">
           <select name="curso" required>
             <option value="">Seleccionar curso</option>
-            <option value="ASIR">ASIR</option>
-            <option value="DAW">DAW</option>
-            <option value="DAM">DAM</option>
+            <?php
+              $stmt = $conn->query("SELECT nombre FROM curso");
+              while($row = $stmt->fetch()) {
+                echo "<option value='" . htmlspecialchars($row['nombre']) . "'>" . htmlspecialchars($row['nombre']) . "</option>";
+              }
+            ?>
           </select>
           <button type="submit" class="admin-button delete">Eliminar Curso</button>
         </form>
