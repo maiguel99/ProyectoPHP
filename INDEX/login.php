@@ -26,7 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // $_SESSION['admin'] = $nomusuario;
 
     if ($rs) {
-        header("Location: index.html");
+        if ($nomusuario === "admin") {
+            header("Location: elegirAdmin.html");
+        } else {
+            header("Location: index.html");
+        }
     } else {
         header("Location: error.html");
     }

@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title> Online MikiCursos</title>
-    <link rel="stylesheet" href="panelAdmin.css" />
+    <link rel="stylesheet" href="style.css" />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
     <link rel="icon" href="logoMR.png">
   </head>
@@ -18,9 +19,152 @@
         </div>
 
         <ul>
-          <li><a href="index.html">Ir a la web</a></li>
+          <li><a href="#sobrenosotros">Sobre nosotros</a></li>
+          <li><a href="#cursos">Cursos</a></li>
+          <li><a href="#asignaturas">Asignaturas</a></li>
+          <li><a href="#contactanos">Contáctanos</a></li>
+          <li><a href="crearCurso.html" class="create-course">Crear Curso</a></li>
+          <li><a href="index.html">Web</a></li>
         </ul>
       </nav>
     </header>
+
+    <section class="seccion1">
+      <div class="seccion_contenedor">
+        <div class="seccion_contenedor2">
+          <div class="texto_seleccion">
+            <h2>Panel de Administración</h2>
+            <h3>Gestiona los cursos y contenidos</h3>
+            <p>
+              Bienvenido al panel de administración. Aquí podrás gestionar los cursos, asignaturas y contenidos de la plataforma.
+            </p>
+          </div>
+
+          <div class="imagen_seccion">
+            <img src="logoMR.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sobre_nosotros" id="sobrenosotros">
+      <div class="seccion_contenedor">
+        <div class="sobrenosotros_contenedor">
+          <div class="texto_seleccion">
+            <h2 class="seccion_texto">Sobre nosotros</h2>
+            <p>
+              Desde este panel podrás gestionar todos los aspectos de la plataforma educativa.
+              Añade nuevos cursos, gestiona las asignaturas y mantén actualizado el contenido
+              para ofrecer la mejor experiencia de aprendizaje a nuestros estudiantes.
+            </p>
+          </div>
+
+          <div class="imagen_seccion">
+            <img src="code.png" alt="code" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cursos" id="cursos">
+      <h2 class="seccion_texto">Cursos</h2>
+      <div class="seccion_contenedor">
+        <div class="curso_contenedor">
+          <div class="cursos_items">
+            <a href=""><img src="asir.png" alt="" /></a>
+          </div>
+          <div class="cursos_items">
+            <a href=""><img src="daw.png" alt="" /></a>
+          </div>
+          <div class="cursos_items">
+            <a href=""><img src="dam.png" alt="" /></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="asignaturas" id="asignaturas">
+      <h2 class="seccion_texto">Asignaturas</h2>
+      <div class="seccion_contenedor">
+        <div class="asignaturas_contenedor">
+          <div class="asignaturas_items">
+            <img class="asigimg1" src="bdd.png" alt="" />
+            <div class="asignaturas_text">
+              <h3>Bases de datos</h3>
+            </div>
+          </div>
+          <div class="asignaturas_items">
+            <img class="asigimg2" src="lenguaje.png" alt="" />
+            <div class="asignaturas_text">
+              <h3>Lenguajes de marcas</h3>
+            </div>
+          </div>
+          <div class="asignaturas_items">
+            <img class="asigimg3" src="ciber.png" alt="" />
+            <div class="asignaturas_text">
+              <h3>Ciberseguridad y hacking ético</h3>
+            </div>
+          </div>
+          <div class="asignaturas_items">
+            <img class="asigimg1" src="sistemasoperaticos.png" alt="" />
+            <div class="asignaturas_text">
+              <h3>Administración de sistemas operativos</h3>
+            </div>
+          </div>
+          <div class="asignaturas_items">
+            <img class="asigimg1" src="hardware.png" alt="" />
+            <div class="asignaturas_text">
+              <h3>Fundamentos de hardware</h3>
+            </div>
+          </div>
+          <div class="asignaturas_items">
+            <img class="asigimg1" src="administracionbdd.png" alt="" />
+            <div class="asignaturas_text">
+              <h3>Administración de bases de datos</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="seccion_contenedor">
+        <div class="piedepag_seccion">
+          <div class="piedepag_logo">
+            <a href="index.html">
+              <img src="logoMR.png" alt="" />
+              <h2>MR Online Courses</h2>
+            </a>
+          </div>
+
+          <div class="piedepag_links">
+            <h3>Links</h3>
+            <ul>
+              <li><a href="#sobrenosotros">Sobre Nosotros</a></li>
+              <li><a href="#cursos">Cursos</a></li>
+              <li><a href="#asignaturas">Asignaturas</a></li>
+              <li><a href="#contactanos">Contactanos</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Contacto</h3>
+            <ul>
+              <li>
+                <i class="bx bx-current-location"></i>
+                <span>Barcelona, Cataluña, España</span>
+              </li>
+              <li>
+                <i class="bx bxs-phone-call"></i> <span>+34 654 84 09 46</span>
+              </li>
+              <li>
+                <i class="bx bxs-time-five"></i>
+                <span>Lun-Sab : 10:00 AM - 7:00 PM</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

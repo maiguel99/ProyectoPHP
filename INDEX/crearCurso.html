@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Curso</title>
+</head>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333f61;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+.texto {
+    font-size: 25px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.boton {
+    width: 100%;
+    padding: 10px;
+    background-color: #333f61;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.boton:hover {
+    background-color: #004792;
+}
+
+.volver {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.volver a {
+    color: #333f61;
+    text-decoration: none;
+}
+
+.volver a:hover {
+    text-decoration: underline;
+}
+</style>
+<body>
+    <form action="crearCurso.php" method="post">
+        <div>
+            <p class="texto">Crear Nuevo Curso</p>
+            <div>
+                <p>Nombre del Curso</p>
+                <input type="text" name="nombre" placeholder="Nombre del curso" required>
+            </div>
+            <button class="boton" type="submit">Crear Curso</button>
+        </div>
+        <div class="volver">
+            <a href="panelAdmin.html">Volver al Panel</a>
+        </div>
+    </form>
+</body>
+</html>
