@@ -1,5 +1,10 @@
-
 <?php
+session_start();
+if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
+    header("Location: login.html");
+    exit();
+}
+
 $localhost = "localhost";
 $root = "root";
 $pass = "miguell";
@@ -29,6 +34,7 @@ try {
             <img src="logoMR.png" alt="" />
             <h2 class="titulo">MR Online Courses / Admin Panel</h2>
           </a>
+          <a href="logout.php" class="logout-btn">Cerrar Sesión</a>
         </div>
       </nav>
     </header>
@@ -53,6 +59,62 @@ try {
 
         <a href="index.html" class="admin-button">Web</a>
       </div>
+
+      <div class="matricula-table">
+        <div class="table-header">
+          <h2>Matrículas Actuales</h2>
+          <select id="filterCurso" onchange="filterMatriculas()">
+            <option value="todos">Todos los cursos</option>
+            <option value="DAW">DAW</option>
+            <option value="DAM">DAM</option>
+            <option value="ASIR">ASIR</option>
+          </select>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Usuario</th>
+              <th>Curso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+              try {
+                $query = "SELECT u.nombre as usuario, c.nombre as curso 
+                         FROM matricula m 
+                         JOIN usuario u ON m.idUsuario = u.id 
+                         JOIN curso c ON m.idCurso = c.id";
+                $stmt = $conn->prepare($query);
+                $stmt->execute();
+                
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                  echo "<tr>";
+                  echo "<td>" . htmlspecialchars($row['usuario']) . "</td>";
+                  echo "<td>" . htmlspecialchars($row['curso']) . "</td>";
+                  echo "</tr>";
+                }
+              } catch(PDOException $e) {
+                echo "<tr><td colspan='2'>Error al cargar los datos: " . $e->getMessage() . "</td></tr>";
+              }
+            ?>
+          </tbody>
+        </table>
+      </div>
     </div>
+    <script>
+      function filterMatriculas() {
+        const filter = document.getElementById('filterCurso').value;
+        const rows = document.querySelectorAll('.matricula-table tbody tr');
+        
+        rows.forEach(row => {
+          const curso = row.querySelector('td:nth-child(2)').textContent;
+          if (filter === 'todos' || curso === filter) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      }
+    </script>
   </body>
 </html>

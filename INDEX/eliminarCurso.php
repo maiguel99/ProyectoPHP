@@ -18,17 +18,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['curso'])) {
         $stmt->bindParam(':nombre', $curso);
         
         if($stmt->execute()) {
+            // Delete the course HTML file if it exists
+            $courseFileName = strtolower($curso) . '.html';
+            $filePath = __DIR__ . '/' . $courseFileName;
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+            
             // Update index.html
             $indexPath = __DIR__ . '/index.html';
             $content = file_get_contents($indexPath);
             
             // Find and remove the course div
-            $pattern = '/<div class="cursos_items">\s*<a href=""><img[^>]*alt="' . preg_quote($curso, '/') . '"[^>]*\/><h3>' . preg_quote($curso, '/') . '<\/h3><\/a>\s*<\/div>/';
+            $pattern = '/<div class="cursos_items">\s*<a href="' . preg_quote($courseFileName, '/') . '"><img[^>]*alt="' . preg_quote($curso, '/') . '"[^>]*\/><h3>' . preg_quote($curso, '/') . '<\/h3><\/a>\s*(?:<\/div>\s*){1,4}/s';
             $newContent = preg_replace($pattern, '', $content);
             
             file_put_contents($indexPath, $newContent);
             
-            header("Location: panelAdmin.html");
+            header("Location: panelAdmin.php");
             exit();
         }
     } catch(PDOException $e) {

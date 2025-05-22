@@ -165,3 +165,79 @@ label .close_btn {
     border-radius: 5px;
     width: 200px;
 }
+
+.matricula-table {
+    margin-top: 40px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.table-header h2 {
+    margin: 0;
+    color: #333;
+}
+
+.table-header select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.table-header select:hover {
+    border-color: #333f61;
+}
+
+.matricula-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.matricula-table th,
+.matricula-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.matricula-table th {
+    background-color: #333f61;
+    color: white;
+}
+
+.matricula-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.navegador {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logout-btn {
+  background-color: #5b9bd5;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin-left: auto;
+}
+
+.logout-btn:hover {
+  background-color: #4a8ac5;
+}

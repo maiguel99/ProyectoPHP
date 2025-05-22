@@ -1,3 +1,40 @@
+.user-profile {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.user-profile .dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: var(--primary-color);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.user-profile:hover .dropdown {
+    display: block;
+}
+
+.user-profile .dropdown a {
+    color: var(--white-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.user-profile .dropdown a:hover {
+    background-color: var(--secondary-color);
+}
+
+.user-name {
+    color: var(--white-color);
+    font-size: 14px;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 * {
@@ -107,8 +144,22 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: var(--primary-color);
-    background-color: var(--secondary-color);
+  color: #333f61;
+}
+
+.logout-btn {
+  background-color: #ff4444;
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #cc0000 !important;
+  color: white !important;
 }
 
 nav label {

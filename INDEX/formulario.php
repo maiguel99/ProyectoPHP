@@ -1,24 +1,33 @@
+
 <?php
+$localhost = "localhost";
+$root = "root";
+$pass = "miguell";
+$proyectomiguelphp = "proyectomiguelphp";
 
-//$conexion = mysqli_connect('localhost', 'root', '', 'proyectomiguelphp')
-//or die(mysql_error($mysqli));
-
-
-
-// function insertar($conexion){
-
+try {
+    $conn = new PDO("mysql:host=$localhost;dbname=$proyectomiguelphp;charset=utf8", $root, $pass);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
     $nombre = $_POST['nombre'];
-    $gmail = $_POST['gmail'];
+    $email = $_POST['gmail'];
     $numeroTelefono = $_POST['numeroTelefono'];
-    $texto = $_POST['texto'];
-
-    $consulta = "INSERT INTO formulario(nombre, email, numeroTelefono, texto)
-    VALUES ('$nombre', '$gmail', '$numeroTelefono', '$texto');"
-die($consulta);
-  //  mysqli_query($conexion, $consulta);
-  //  mysqli_close($conexion);
-// } 
-
-
-
+    $texto = $_POST['textarea'];
+    
+    $sql = "INSERT INTO formulario (nombre, email, numeroTelefono, texto) VALUES (:nombre, :email, :numeroTelefono, :texto)";
+    $stmt = $conn->prepare($sql);
+    
+    $stmt->bindParam(':nombre', $nombre);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':numeroTelefono', $numeroTelefono);
+    $stmt->bindParam(':texto', $texto);
+    
+    if($stmt->execute()) {
+        header("Location: index.html");
+        exit();
+    }
+} catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+$conn = null;
 ?>
